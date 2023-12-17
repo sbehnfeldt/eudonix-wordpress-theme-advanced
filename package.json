@@ -1,0 +1,19 @@
+{
+  "name": "eudonix-project-theme-advanced",
+  "version": "1.0.0",
+  "description": "Second WordPress theme developed in Udemy series \"Learn to Create WordPress Themes by Building 10 Projects\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbehnfeldt/eudonix-wordpress-theme-advanced.git"
+  },
+  "author": "Stephen Behnfeldt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbehnfeldt/eudonix-wordpress-theme-advanced/issues"
+  },
+  "homepage": "https://github.com/sbehnfeldt/eudonix-wordpress-theme-advanced#readme"
+}
