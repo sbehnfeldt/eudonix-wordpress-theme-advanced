@@ -1,0 +1,307 @@
+/*
+  Theme Name: Eudonix Theme Project Advanced
+  Author: Stephen Behnfeldt
+  Description: Theme based on Project 2 from Udemy series "Learn to Create WordPress Themes by Building 10 Projects" by Eudonix
+  Version: 1.0
+*/
+
+$color: #009acd;
+
+@mixin clearfix {
+    overflow: auto;
+
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// MEDIA QUERY MANAGER
+/*
+ 0-600px:   phone portrait
+ 601-900:   phone landscape/tablet portrait
+ 901-1200:  tablet landscape
+ 1201-1800: desktop (normal style, desktop-first)
+ 1801+:     big desktop
+
+ $breakpoint argument choices:
+ - phone
+ - tab-port
+ - tab-land
+ - big-desktop
+
+ 1 em = 16px
+ */
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {
+            @content
+        }; // 600px
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {
+            @content
+        }; // 900px
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {
+            @content
+        }; // 1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {
+            @content
+        }; //1800px
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Layout
+////////////////////////////////////////////////////////////////////////////////
+
+// Global Reset
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+
+    /* box-sizing prop does not inherit by default.  Setting its value to "inherit" in the universal selector
+       will make it inherit.  We can then specify a value of "border-box" in the rule for the body selector.
+       Then all elements will have box-sizing of border-box by way of inheritance, rather than the universal
+       selector, which is considered better practice (cite?).
+    */
+    box-sizing: inherit;
+}
+
+/* Set the ROOT font size; this is done in "html" selector and defines the value of 1 rem.
+   We want a root font size of 10px (to make all our conversions to rems easier in the rest of our CSS),
+   but we can't specify it directly as such, since that would override any DEFAULT font size
+   which the user may have set (such as increasing it to compensate for declining eye-sight).
+   So instead, specify the root font size as a percentage, which is a percentage of the default
+   font size (whether that be browser- or user-specified).  Browsers define default font size as
+   16px; our desired value of 10px is 62.5% of 16px, so set the root font size to 62.5%.  If the
+   user overrides the browser's default font size, all our measurements will adjust accordingly.
+*/
+
+html {
+    // We want a ROOT font size of 10px; 10px / 16px = .625,
+    font-size: 62.5%; // ROOT font size (also 1 rem)
+
+    // ORDER MATTERS!
+    // Order media queries by DECREASING max-width for desktop first
+    // (for mobile first, order by increasing min-width)
+    @include respond(tab-land) {
+        // We want a ROOT font size of 9px; 9px / 16 px = .5625
+        font-size: 56.25%; // ROOT font size (also 1 rem)
+    }
+
+    @include respond(tab-port) {
+        // We want the same ROOT font size for tablets in both portrait and landscape;
+        // specifying it for landscape will also also work for portrait,
+        // so we don't need to specify it explicitly here,
+        // so long as we define our media queries in the correct order
+    }
+
+    @include respond(phone) {
+        // We want a ROOT font size of 8px; 8px / 16px = .5
+        font-size: 50%; // ROOT font size (also 1 rem)
+    }
+
+    // "big-desktop" is LARGER than our default CSS rule,
+    // so this media query can go AFTER the
+    @include respond(big-desktop) {
+        // We want a ROOT font size
+    }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+}
+
+
+header {
+    @include clearfix;
+    background: #f4f4f4;
+    width: 100%;
+    border-bottom: 3px solid $color;
+    padding: 10px;
+
+    h1 a {
+        color: $color;
+        text-decoration: none;
+    }
+
+    small {
+        color: #666;
+        margin-left: 1px;
+        font-size: 13px;
+    }
+
+    form {
+        float: right;
+
+        input[type=text] {
+            width: 250px;
+            padding: 5px;
+            margin-top: 5px;
+        }
+    }
+}
+
+nav {
+
+    ul {
+        list-style: none;
+
+        li {
+            float: left;
+            display: inline;
+            padding-right: 1.5rem;
+
+            a {
+                color: $color;
+                text-decoration: none;
+
+                &:hover {
+                    color: #333;
+                }
+            }
+        }
+    }
+
+    &.primary {
+        height: 4.5rem;
+        overflow: hidden;
+        background: #333;
+        color: #fff;
+        padding-top: 7px;
+
+        li {
+            height: 4rem;
+            line-height: 4rem;
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                padding: 8px;
+
+                &:hover {
+                    color: $color;
+                }
+            }
+        }
+    }
+}
+
+main {
+    float: left;
+    width: 60%;
+
+    line-height: 1.5em;
+}
+
+footer {
+    background: #333;
+    width: 100%;
+    margin-top: 4rem;
+    padding-top: 10px;
+    height: 6rem;
+
+    float: left;
+    color: #fff;
+    text-align: center;
+    overflow: auto;
+
+    .container {
+        @include clearfix;
+
+        .copyright {
+            float: left;
+        }
+        nav {
+            float: right;
+            width: 50%;
+            ul {
+                li {
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+article {
+    margin-top: 2rem;
+
+}
+
+
+p {
+    margin: 1rem auto;
+
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    color: $color;
+    float: left;
+    font-size: 3rem;
+}
+
+
+.container {
+    width: 960px;
+    margin: auto;
+    overflow: auto;
+}
+
+.main {
+    @include clearfix;
+    margin-top: 3rem;
+}
+
+.sidebar {
+    width: 30%;
+    float: right;
+}
+
+.block {
+    border: #ccc 1px solid;
+    padding: 5px 15px 25px 15px;
+    background: #fcfcfc;
+    overflow: hidden;
+
+    h3 {
+        border-bottom: #ccc solid 1px;
+        padding-bottom: 10px;
+    }
+}
+
+
+.post {
+    border-bottom: #ccc solid 1px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+.meta {
+    background: $color;
+    color: #fff;
+    padding: 7px;
+}
+
+.button {
+    display: inline-block;
+    background: $color;
+    color: #fff;
+    padding: 10px 15px;
+
+    text-decoration: none;
+}

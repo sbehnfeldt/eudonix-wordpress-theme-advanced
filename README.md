@@ -5,3 +5,8 @@ _ref: https://www.udemy.com/course/learn-to-create-wordpress-themes-by-building-
 
 ## Lesson 10) HTML Template Part A
 Static mockup for new theme project
+
+## Lesson 11) HTML Template Part B
+```shell
+$> npm i node-sass -D
+```

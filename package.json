@@ -4,6 +4,8 @@
   "description": "Second WordPress theme developed in Udemy series \"Learn to Create WordPress Themes by Building 10 Projects\"",
   "main": "index.js",
   "scripts": {
+    "sass:compile": "node-sass style.scss style.css",
+    "sass:watch": "node-sass style.scss style.css -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/sbehnfeldt/eudonix-wordpress-theme-advanced/issues"
   },
-  "homepage": "https://github.com/sbehnfeldt/eudonix-wordpress-theme-advanced#readme"
+  "homepage": "https://github.com/sbehnfeldt/eudonix-wordpress-theme-advanced#readme",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
 }
