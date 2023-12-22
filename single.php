@@ -27,12 +27,11 @@
                             ?>
                         </p>
                         <?php if (has_post_thumbnail() ): ?>
-                        <div class="post-thumbnail">
-                            <?php the_post_thumbnail(); ?>
-                        </div>
+                            <div class="post-thumbnail">
+                                <?php the_post_thumbnail(); ?>
+                            </div>
                         <?php endif; ?>
-                        <?php the_excerpt(); ?>
-                        <a href="<?php the_permalink(); ?>" class="button">Read More</a>
+                        <?php the_content(); ?>
                     </article>
                 <?php endwhile; ?>
             <?php else: ?>
