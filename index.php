@@ -1,34 +1,36 @@
-<html>
+<html <?php language_attributes();?>>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ) ?>">
     <title><?php bloginfo( 'name' ); ?></title>
+    <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 
 <header>
     <div class="container">
         <h1>
-            <a href="/">Advanced WordPress Theme</a>
-            <small>Another WordPress Theme</small>
+            <a href="/"><?php bloginfo('name'); ?></a>
+            <small><?php bloginfo('description'); ?></small>
         </h1>
 
-        <form action="">
-            <input type="text" placeholder="Search...">
+        <form method="get" action="<?php esc_url(home_url('/')) ?>">
+            <input type="text" name="s" placeholder="Search...">
         </form>
     </div>
 </header>
 
 <div class="container">
     <nav class="primary">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
+        <ul><?php $args = [
+            'theme_location' => 'primary'
+            ];
+            wp_nav_menu($args);
+        ?>
         </ul>
     </nav>
 
@@ -96,5 +98,6 @@
         </nav>
     </div>
 </footer>
+<?php wp_footer(); ?>
 </body>
 </html>
