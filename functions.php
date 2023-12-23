@@ -10,6 +10,9 @@ add_action( 'after_setup_theme', function () {
 
     // Featured image support
     add_theme_support( 'post-thumbnails' );
+
+    // Post format support
+    add_theme_support('post-formats', ['aside', 'gallery', 'link']);
 } );
 
 
