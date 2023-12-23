@@ -1,6 +1,7 @@
 <?php
+
 // Theme support
-function adv_theme_support() {
+add_action( 'after_setup_theme', function () {
     // nav menus
     register_nav_menus( [
         'primary' => __( 'Primary Menu' ),
@@ -8,13 +9,10 @@ function adv_theme_support() {
     ] );
 
     // Featured image support
-    add_theme_support('post-thumbnails');
-}
+    add_theme_support( 'post-thumbnails' );
+} );
 
-add_action( 'after_setup_theme', 'adv_theme_support' );
 
-function adv_excerpt_length() {
+add_filter( 'excerpt_length', function () {
     return 25;
-}
-
-add_filter('excerpt_length', 'adv_excerpt_length');
+} );
