@@ -5,7 +5,9 @@
             <small><?php bloginfo( 'description' ); ?></small>
         </h1>
 
-        <form method="get" action="<?php esc_url( home_url( '/' ) ) ?>">
+        <?php $action = home_url('/'); ?>
+        <?php $action = esc_url($action); ?>
+        <form method="get" action="<?php echo esc_url( home_url( '/' ) ) ?>">
             <input type="text" name="s" placeholder="Search...">
         </form>
     </div>

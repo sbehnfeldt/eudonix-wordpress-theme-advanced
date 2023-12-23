@@ -24,7 +24,7 @@
                 <?php the_post_thumbnail(); ?>
             </div>
         <?php endif; ?>
-        <?php if ( is_single() ): ?>
+        <?php if ( is_single() || is_page()): ?>
             <?php the_content(); ?>
         <?php else: ?>
             <?php the_excerpt(); ?>
