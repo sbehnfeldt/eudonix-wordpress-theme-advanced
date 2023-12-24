@@ -294,10 +294,12 @@ a {
     margin-bottom: 10px;
     padding-bottom: 20px;
 }
+
 .post-aside {
     small {
         font-weight: bold;
     }
+
     .well {
         background: #e0eefc;
         padding: 10px;
@@ -357,5 +359,36 @@ main.search {
     h1 {
         color: initial;
         margin-bottom: 2rem;
+    }
+}
+
+.phone {
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.sub-nav {
+    ul {
+        float: right;
+
+        .parent-link {
+            font-weight: bold;
+            color: #000;
+            float: left;
+            margin-right: 20px;
+            padding-right: 20px;
+            border-right: 1px solid #009acd;
+
+            a {
+                font-weight: bold;
+                color: #000;
+            }
+        }
+
+        .current_page_item {
+            font-weight: bold;
+        }
     }
 }

@@ -19,3 +19,20 @@ add_action( 'after_setup_theme', function () {
 add_filter( 'excerpt_length', function () {
     return 25;
 } );
+
+function get_top_parent() {
+    global $post;
+
+    if ($post->post_parent) {
+        $ancestors = get_post_ancestors($post->ID);
+        return $ancestors[0];
+
+    }
+    return $post->ID;
+}
+
+function page_is_parent() {
+    global $post;
+    $pages = get_pages('child_of=' . $post->ID);
+    return count($pages);
+}

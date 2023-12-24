@@ -1,11 +1,11 @@
 <html <?php language_attributes(); ?>>
 <?php get_template_part( 'head' ) ?>
-<body <?php body_class(); ?>>
 
+<body <?php body_class(); ?>>
 <?php get_template_part( 'header' ) ?>
 
 <div class="container">
-    <?php load_template( get_template_directory() . DIRECTORY_SEPARATOR . "primary-menu.php" ); ?>
+    <?php get_template_part("primary-menu" ); ?>
 
     <div class="main">
         <main>

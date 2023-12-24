@@ -1,11 +1,11 @@
 <html <?php language_attributes(); ?>>
-<?php load_template( get_template_directory() . DIRECTORY_SEPARATOR . "head.php" ); ?>
-<body <?php body_class(); ?>>
+<?php get_template_part( 'head' ) ?>
 
-<?php load_template( get_template_directory() . DIRECTORY_SEPARATOR . "header.php" ); ?>
+<body <?php body_class(); ?>>
+<?php get_template_part( 'header' ) ?>
 
 <div class="container">
-    <?php load_template( get_template_directory() . DIRECTORY_SEPARATOR . "primary-menu.php" ); ?>
+    <?php get_template_part("primary-menu" ); ?>
 
     <div class="main">
         <main>
@@ -22,8 +22,6 @@
     </div>
 </div>
 
-<?php load_template( get_template_directory() . DIRECTORY_SEPARATOR . "footer.php" ); ?>
-
-
+<?php get_template_part("footer" ); ?>
 </body>
 </html>
