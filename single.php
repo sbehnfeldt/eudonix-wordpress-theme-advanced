@@ -16,7 +16,9 @@
             <?php else: ?>
                 <p><?php echo wpautop( 'Sorry, no posts were found!' ) ?></p>
             <?php endif; ?>
+            <?php  comments_template(); ?>
         </main>
+
 
         <?php get_template_part( 'sidebar' ); ?>
     </div>
