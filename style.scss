@@ -277,6 +277,7 @@ a {
     color: $color;
 }
 
+// Constrains contents, prevents them from extending the full viewport width
 .container {
     width: 960px;
     margin: auto;

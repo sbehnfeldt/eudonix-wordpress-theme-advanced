@@ -3,9 +3,9 @@
 
 <body <?php body_class(); ?>>
 <?php get_template_part( 'header' ) ?>
+<?php get_template_part("primary-menu" ); ?>
 
 <div class="container">
-    <?php get_template_part("primary-menu" ); ?>
 
     <div class="main">
         <main>
